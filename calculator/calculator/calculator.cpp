@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 double sum(double a, double b) {
@@ -21,12 +22,17 @@ double divide(double a, double b) {
     return a / b;
 }
 
+double power(double a, double b) {
+    return pow(a, b);
+}
+
 void print_menu() {
     cout << "1. Сложение" << endl;
     cout << "2. Вычитание" << endl;
     cout << "3. Умножение" << endl;
     cout << "4. Деление" << endl;
-    cout << "0. Выход" << endl;
+    cout << "5. Возведение в степень" << endl;
+    cout << "6. Выход" << endl;
     cout << "Выберите операцию: ";
 }
 
@@ -39,7 +45,7 @@ int main() {
         print_menu();
         cin >> choice;
 
-        if (choice >= 1 && choice <= 4) {
+        if (choice >= 1 && choice <= 5) {
             cout << "Введите первое число: ";
             cin >> num1;
             cout << "Введите второе число: ";
@@ -58,6 +64,9 @@ int main() {
             case 4:
                 result = divide(num1, num2);
                 break;
+            case 5:
+                result = power(num1, num2);
+                break;
             }
 
             if (!(choice == 4 && num2 == 0)) {
@@ -65,7 +74,7 @@ int main() {
             }
         }
 
-    } while (choice != 0);
+    } while (choice != 6);
 
     return 0;
 }
